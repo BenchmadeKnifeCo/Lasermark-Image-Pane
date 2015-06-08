@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LasermarkImagePane.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DefaultDownloadPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">S:\CharlesM\Download_Center_Images\</Value>
+    </Setting>
+    <Setting Name="ImageStorePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://staging.benchmade.com/Images/lm/uim/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
