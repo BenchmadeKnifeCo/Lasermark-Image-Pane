@@ -26,21 +26,31 @@ namespace LasermarkImagePane
         {
             try
             {
-                DialogResult result = MessageBox.Show("Image will be downloaded to the path " + Properties.Settings.Default.DefaultDownloadPath + "\n" + "To cancel download, click Cancel.", "Image Download", MessageBoxButtons.OKCancel);
-
-                if (result == DialogResult.OK)
+                if (string.IsNullOrWhiteSpace(_ImageName))
                 {
-                    /* Download */
-                    using (var client = new WebClient())
+
+                    DialogResult result = MessageBox.Show("Image will be downloaded to the path " + Properties.Settings.Default.DefaultDownloadPath + "\n" + "To cancel download, click Cancel.", "Image Download", MessageBoxButtons.OKCancel);
+
+                    if (result == DialogResult.OK)
                     {
-                        string storePath = Properties.Settings.Default.ImageStorePath + _ImageName;
-                        string downloadPath = Properties.Settings.Default.DefaultDownloadPath + _ImageName;
-                        client.DownloadFile(storePath, downloadPath);
+                        /* Download */
+                        using (var client = new WebClient())
+                        {
+                            string storePath = Properties.Settings.Default.ImageStorePath + _ImageName;
+                            string downloadPath = Properties.Settings.Default.DefaultDownloadPath + _ImageName;
+                            client.DownloadFile(storePath, downloadPath);
+                        }
                     }
+                    else
+                    {
+                        /* Cancel. Perform No action */
+                    }
+
                 }
                 else
                 {
-                    /* Cancel. Perform No action */
+                    MessageBox.Show("Please select a valid Image comment line");
+
                 }
             }
             catch (Exception)
@@ -84,7 +94,6 @@ namespace LasermarkImagePane
         {
             if (System.IO.Directory.Exists(tbxDownloadPath.Text))
             {
-
 
             }
         }
